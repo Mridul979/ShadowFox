@@ -1,0 +1,79 @@
+# Parent Class
+class MobilePhone:
+    def __init__(self, screen_type, network_type, dual_sim, front_camera, rear_camera, ram, storage):
+        self.screen_type = screen_type
+        self.network_type = network_type
+        self.dual_sim = dual_sim
+        self.front_camera = front_camera
+        self.rear_camera = rear_camera
+        self.ram = ram
+        self.storage = storage
+
+    def make_call(self):
+        print("Making a call...")
+
+    def receive_call(self):
+        print(" Receiving a call...")
+
+    def take_picture(self):
+        print(f"📷 Taking a picture with {self.rear_camera} rear camera and {self.front_camera} front camera")
+
+    def phone_specs(self):
+        print(" Phone Specifications:")
+        print(f"  Screen Type : {self.screen_type}")
+        print(f"  Network     : {self.network_type}")
+        print(f"  Dual SIM    : {self.dual_sim}")
+        print(f"  Front Camera: {self.front_camera}")
+        print(f"  Rear Camera : {self.rear_camera}")
+        print(f"  RAM         : {self.ram}")
+        print(f"  Storage     : {self.storage}")
+        print("---------------------------")
+
+# Child Class: Apple
+class Apple(MobilePhone):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+# Child Class: Samsung
+class Samsung(MobilePhone):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+# Create Apple phones
+iphone_14 = Apple(
+    screen_type="OLED", network_type="5G", dual_sim=False,
+    front_camera="12MP", rear_camera="48MP", ram="6GB", storage="128GB"
+)
+
+iphone_se = Apple(
+    screen_type="LCD", network_type="4G", dual_sim=False,
+    front_camera="7MP", rear_camera="12MP", ram="3GB", storage="64GB"
+)
+
+# Create Samsung phones
+samsung_s23 = Samsung(
+    screen_type="AMOLED", network_type="5G", dual_sim=True,
+    front_camera="12MP", rear_camera="50MP", ram="8GB", storage="256GB"
+)
+
+samsung_a14 = Samsung(
+    screen_type="LCD", network_type="4G", dual_sim=True,
+    front_camera="8MP", rear_camera="48MP", ram="4GB", storage="64GB"
+)
+
+# Test: Print phone details and use methods
+print(" Apple iPhone 14:")
+iphone_14.phone_specs()
+iphone_14.make_call()
+iphone_14.take_picture()
+
+print("\nApple iPhone SE:")
+iphone_se.phone_specs()
+iphone_se.receive_call()
+
+print("\n Samsung Galaxy S23:")
+samsung_s23.phone_specs()
+samsung_s23.take_picture()
+
+print("\n Samsung Galaxy A14:")
+samsung_a14.phone_specs()
