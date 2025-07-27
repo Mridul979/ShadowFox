@@ -1,0 +1,30 @@
+# Task 2: Numbers
+
+print("1. Format number 145 in 'o' (octal) format using format()")
+
+num = 145
+formatted = format(num, 'o')
+print("   Octal format of 145 is:", formatted)
+
+print("\n---")
+
+# 2. Area of circular pond and water calculation
+print("2. Area of a circular pond with radius 84 meters")
+radius = 84
+pi = 3.14
+pond_area = pi * (radius ** 2)
+print("   Area of pond:", pond_area, "square meters")
+
+# Total water (1.4 liters per square meter, no decimal)
+total_water = int(pond_area * 1.4)
+print("   Total water in liters (no decimal):", total_water)
+
+print("\n---")
+
+# 3. Speed calculation
+print("3. Calculate speed in meters per second")
+distance = 490           # in meters
+time_minutes = 7
+time_seconds = time_minutes * 60
+speed = int(distance / time_seconds)  # no decimal
+print("   Speed in m/s:", speed)
