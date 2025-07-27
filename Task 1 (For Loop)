@@ -1,0 +1,53 @@
+import random
+
+# Task 5.1: Dice Rolling Simulation
+print("1. Dice Rolling Simulation (20 times)")
+
+rolls = []
+count_6 = 0
+count_1 = 0
+two_6s_in_row = 0
+
+for i in range(20):
+    roll = random.randint(1, 6)
+    rolls.append(roll)
+    print(f"Roll {i + 1}: {roll}")
+    
+    if roll == 6:
+        count_6 += 1
+    if roll == 1:
+        count_1 += 1
+    if i > 0 and rolls[i] == 6 and rolls[i - 1] == 6:
+        two_6s_in_row += 1
+
+print("\nSummary:")
+print("Number of times 6 was rolled:", count_6)
+print("Number of times 1 was rolled:", count_1)
+print("Number of times two 6s were rolled in a row:", two_6s_in_row)
+
+print("\n---\n")
+
+# Task 5.2: Jumping Jacks Workout
+print("2. Jumping Jacks Tracker (10 per set, goal = 100)")
+
+completed = 0
+while completed < 100:
+    completed += 10
+    print(f"You completed {completed} jumping jacks.")
+    
+    if completed >= 100:
+        break
+    
+    tired = input("Are you tired? (yes/no): ").lower()
+    if tired in ['yes', 'y']:
+        skip = input("Do you want to skip the rest? (yes/no): ").lower()
+        if skip in ['yes', 'y']:
+            print(f"You completed a total of {completed} jumping jacks.")
+            break
+        else:
+            continue
+    elif tired in ['no', 'n']:
+        print(f"{100 - completed} jumping jacks remaining...\n")
+
+if completed >= 100:
+    print("🎉 Congratulations! You completed the workout.")
