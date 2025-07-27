@@ -1,0 +1,54 @@
+# Task 6: Dictionary
+
+# 1. List of friends and their name lengths
+print("1. Friends and length of their names")
+friends = ["Aditya", "Megha", "Ravi", "Sneha", "Kabir"]
+name_lengths = [(name, len(name)) for name in friends]
+print("Friend name and length:")
+for name, length in name_lengths:
+    print(f"  {name}: {length} letters")
+
+print("\n---\n")
+
+# 2. Travel Expense Comparison
+print("2. Expense comparison between you and your partner")
+
+your_expenses = {
+    "Hotel": 1200,
+    "Food": 800,
+    "Transportation": 500,
+    "Attractions": 300,
+    "Miscellaneous": 200
+}
+
+partner_expenses = {
+    "Hotel": 1000,
+    "Food": 900,
+    "Transportation": 600,
+    "Attractions": 400,
+    "Miscellaneous": 150
+}
+
+# Calculate total expenses
+your_total = sum(your_expenses.values())
+partner_total = sum(partner_expenses.values())
+
+print(f"Your total expenses: ₹{your_total}")
+print(f"Partner's total expenses: ₹{partner_total}")
+
+# Compare who spent more
+if your_total > partner_total:
+    print("You spent more overall.")
+elif your_total < partner_total:
+    print("Your partner spent more overall.")
+else:
+    print("Both spent the same amount.")
+
+# Find the category with the biggest difference
+differences = {}
+for category in your_expenses:
+    diff = abs(your_expenses[category] - partner_expenses[category])
+    differences[category] = diff
+
+max_diff_category = max(differences, key=differences.get)
+print(f"Largest difference in spending: {max_diff_category} (₹{d
