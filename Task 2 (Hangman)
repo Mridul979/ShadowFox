@@ -1,0 +1,48 @@
+import random
+
+# List of words and hints
+words = [
+    ("python", "A popular programming language"),
+    ("hangman", "The game you're playing now"),
+    ("computer", "An electronic device"),
+    ("internet", "A global network"),
+    ("jupyter", "A popular notebook for Python")
+]
+
+# Select a random word and hint
+word, hint = random.choice(words)
+guessed = ["_"] * len(word)
+attempts = 7
+guessed_letters = []
+
+print("🎮 Welcome to Hangman!")
+print("Hint:", hint)
+
+# Main game loop
+while attempts > 0 and "_" in guessed:
+    print("\nWord:", " ".join(guessed))
+    print(f"Remaining attempts: {attempts}")
+    print("Guessed letters:", ", ".join(guessed_letters))
+    
+    guess = input("Guess a letter: ").lower()
+
+    if guess in guessed_letters:
+        print("⚠️ You already guessed that letter.")
+        continue
+
+    guessed_letters.append(guess)
+
+    if guess in word:
+        for i in range(len(word)):
+            if word[i] == guess:
+                guessed[i] = guess
+        print("✅ Good guess!")
+    else:
+        attempts -= 1
+        print("❌ Wrong guess.")
+
+# Final result
+if "_" not in guessed:
+    print("\n🎉 Congratulations! You guessed the word:", word)
+else:
+    print("\n💀 You lost! The word was:", word)
